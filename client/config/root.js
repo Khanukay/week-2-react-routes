@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider, connect } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
-import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
+import { Switch, Route, withRouter, Redirect, Link, useParams } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 
 import store, { history } from '../redux'
@@ -85,6 +85,8 @@ const RootComponent = (props) => {
           <Switch>
             <Route exact path="/" component={() => <DummyView />} />
             <Route exact path="/dashboard" component={() => <Home />} />
+            <Route exact path="/dashboard/main" component={() => <Home />} />
+            <Route exact path="/dashboard/profile/:user" component={() => <Home />} />
             <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>

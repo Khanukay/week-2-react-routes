@@ -1,16 +1,22 @@
 import React from 'react'
+import { Switch, Route, withRouter, Redirect, Link, useParams } from 'react-router-dom'
+import Dashboard from './dashboard'
 import Header from './header'
+import Main from './main'
+import Profile from './profile'
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <div className="flex items-center justify-center h-screen">
-        <div className="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
-          {/* add your routes here */}
+          <div>
+            <switch>
+              <Route exact path="/dashboard" component={() => <Dashboard />} />
+              <Route exact path="/dashboard/main" component={() => <Main />} />
+              <Route exact path="/dashboard/profile/:user" component={() => <Profile />} />
+            </switch>
+          </div>
         </div>
-      </div>
-    </div>
   )
 }
 
